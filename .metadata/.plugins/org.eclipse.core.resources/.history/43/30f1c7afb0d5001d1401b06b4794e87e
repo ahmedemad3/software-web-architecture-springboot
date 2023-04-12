@@ -1,0 +1,13 @@
+package com.eg.swa.modular.ecommerce;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication(scanBasePackages = {"com.eg.swa.modular.ecommerce.productcatalog", "com.eg.swa.modular.ecommerce.ordermanagement", "com.eg.swa.modular.ecommerce.shoppingcart"})
+public class ECommerceModularApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ECommerceModularApplication.class, args);
+	}
+
+}

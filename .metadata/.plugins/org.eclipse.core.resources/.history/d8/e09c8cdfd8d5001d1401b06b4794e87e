@@ -1,0 +1,30 @@
+package com.eg.swa.microkernel.adapters;
+
+import java.io.IOException;
+
+import net.bytebuddy.build.Plugin;
+import net.bytebuddy.description.type.TypeDescription;
+import net.bytebuddy.dynamic.ClassFileLocator;
+import net.bytebuddy.dynamic.DynamicType.Builder;
+
+public class PluginOne implements Plugin {
+
+	@Override
+	public boolean matches(TypeDescription target) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void close() throws IOException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Builder<?> apply(Builder<?> builder, TypeDescription typeDescription, ClassFileLocator classFileLocator) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

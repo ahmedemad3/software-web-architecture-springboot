@@ -1,0 +1,28 @@
+package com.eg.swa.rabbitmq;
+
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+@Configuration
+public class JacksonConfig {
+
+//    @Bean
+//    public Jackson2ObjectMapperBuilderCustomizer jsonCustomizer() {
+//        return builder -> {
+//            builder.modules(new JavaTimeModule());
+//            builder.serializationInclusion(JsonInclude.Include.NON_NULL);
+//        };
+//    }
+	
+	@Bean
+    public ObjectMapper objectMapper() {
+        return JsonMapper.builder()
+            .addModule(new JavaTimeModule())
+            .build();
+    }
+}
+

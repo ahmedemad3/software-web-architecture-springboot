@@ -1,0 +1,5 @@
+package com.eg.swa.bankTransfer.model;
+
+public class Account {
+
+}

@@ -1,0 +1,11 @@
+package com.eg.swa.modular.ecommerce.productcatalog.service;
+
+import java.util.List;
+
+import com.eg.swa.modular.ecommerce.productcatalog.model.Product;
+
+public interface ProductService {
+
+	List<Product> getAllProducts();
+
+}

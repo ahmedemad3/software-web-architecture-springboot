@@ -1,0 +1,17 @@
+package com.eg.swa.WS.model;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "paymentRequest")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class PaymentRequest {
+    private String paymentId;
+    private String cardNumber;
+    private String expiryDate;
+    private String cvv;
+    private double amount;
+
+    // getters and setters
+}

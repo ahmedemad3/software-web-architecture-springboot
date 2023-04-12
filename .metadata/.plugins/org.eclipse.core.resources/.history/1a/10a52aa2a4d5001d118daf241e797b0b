@@ -1,0 +1,11 @@
+package com.eg.swa.bankTransfer.model;
+
+@Entity
+public class Account {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String accountNumber;
+    private BigDecimal balance;
+    // getters and setters
+}

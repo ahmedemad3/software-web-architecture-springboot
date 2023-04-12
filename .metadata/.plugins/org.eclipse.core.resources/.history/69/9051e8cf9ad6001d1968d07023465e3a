@@ -1,0 +1,5 @@
+package com.eg.swa.redis.cache.model;
+
+public class Book {
+
+}

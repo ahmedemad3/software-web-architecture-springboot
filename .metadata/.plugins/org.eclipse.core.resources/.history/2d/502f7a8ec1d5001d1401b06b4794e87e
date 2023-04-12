@@ -1,0 +1,7 @@
+package com.eg.swa.ntier.shopping.service.impl;
+
+import com.eg.swa.ntier.shopping.service.ProductService;
+
+public class ProductServiceImpl implements ProductService{
+
+}

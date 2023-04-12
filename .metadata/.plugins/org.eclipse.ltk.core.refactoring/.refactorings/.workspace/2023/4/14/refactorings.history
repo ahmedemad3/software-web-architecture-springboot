@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;shopping-cart&apos; to &apos;N-tier-shopping-cart&apos;" description="Rename resource &apos;shopping-cart&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/shopping-cart" name="N-tier-shopping-cart" stamp="1680925433213" updateReferences="true"/>
+</session>

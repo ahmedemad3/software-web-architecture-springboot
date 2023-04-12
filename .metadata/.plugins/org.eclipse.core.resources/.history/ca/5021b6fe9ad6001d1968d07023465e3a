@@ -1,0 +1,8 @@
+package com.eg.swa.redis.cache.repository;
+
+public interface BookRepository extends JpaRepository<Book, Long> {
+
+    @Cacheable(value = "books", key = "#title")
+    Optional<Book> findByTitle(String title);
+}
+

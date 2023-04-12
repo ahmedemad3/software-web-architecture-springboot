@@ -1,0 +1,5 @@
+package com.eg.swa.rabbitmq.consum;
+
+public class MyMessageListener {
+
+}

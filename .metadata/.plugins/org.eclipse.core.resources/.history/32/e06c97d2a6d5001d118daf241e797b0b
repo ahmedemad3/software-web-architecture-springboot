@@ -1,0 +1,9 @@
+package com.eg.swa.bankTransfer.model;
+
+public class TransferRequest {
+    private String fromAccountNumber;
+    private String toAccountNumber;
+    private BigDecimal amount;
+    // getters and setters
+}
+

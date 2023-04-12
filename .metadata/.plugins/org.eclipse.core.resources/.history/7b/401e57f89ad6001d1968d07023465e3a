@@ -1,0 +1,5 @@
+package com.eg.swa.redis.cache.repository;
+
+public interface BookRepository {
+
+}

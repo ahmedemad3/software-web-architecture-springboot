@@ -1,0 +1,35 @@
+package com.eg.swa.WS.model;
+
+import java.time.LocalDateTime;
+
+public class Transaction {
+
+	private String transactionId;
+	private String transactionStatus;
+	private LocalDateTime transactionDate;
+
+	public String getTransactionId() {
+		return transactionId;
+	}
+
+	public void setTransactionId(String transactionId) {
+		this.transactionId = transactionId;
+	}
+
+	public String getTransactionStatus() {
+		return transactionStatus;
+	}
+
+	public void setTransactionStatus(String transactionStatus) {
+		this.transactionStatus = transactionStatus;
+	}
+
+	public LocalDateTime getTransactionDate() {
+		return transactionDate;
+	}
+
+	public void setTransactionDate(LocalDateTime transactionDate) {
+		this.transactionDate = transactionDate;
+	}
+
+}

@@ -1,0 +1,29 @@
+package com.eg.swa.WS.service;
+
+import org.springframework.stereotype.Service;
+
+import com.eg.swa.WS.model.PaymentRequest;
+import com.eg.swa.WS.model.PaymentResponse;
+
+@Service
+public class PaymentService {
+    
+    public PaymentResponse processPayment(PaymentRequest paymentRequest) {
+        // validate paymentRequest
+        if (paymentRequest.getAmount() <= 0) {
+            throw new IllegalArgumentException("Invalid amount");
+        }
+
+        // process payment using external payment gateway
+        // ...
+
+        // create PaymentResponse
+        PaymentResponse paymentResponse = new PaymentResponse();
+        paymentResponse.setPaymentId(paymentRequest.getPaymentId());
+        paymentResponse.setStatus("success");
+        paymentResponse.setMessage("Payment processed successfully");
+
+        return paymentResponse;
+    }
+}
+

@@ -1,0 +1,26 @@
+package com.eg.swa.SOA.service.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.eg.swa.SOA.model.Book;
+import com.eg.swa.SOA.repository.BookRepository;
+import com.eg.swa.SOA.service.BookSearchService;
+
+@Service
+public class BookSearchServiceImpl implements BookSearchService {
+
+    private final BookRepository bookRepository;
+
+    public BookSearchServiceImpl(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    @Override
+    public List<Book> searchBooks(String searchTerm) {
+        List<Book> books = bookRepository.findByNameContainingIgnoreCase(searchTerm);
+        return books;
+    }
+}
+

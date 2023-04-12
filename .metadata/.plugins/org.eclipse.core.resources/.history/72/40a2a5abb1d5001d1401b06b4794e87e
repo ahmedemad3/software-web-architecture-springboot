@@ -1,0 +1,6 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/mydatabase
+spring.datasource.username=myusername
+spring.datasource.password=mypassword
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+

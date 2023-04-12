@@ -1,0 +1,8 @@
+package com.eg.swa.bankTransfer.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.eg.swa.bankTransfer.model.Transaction;
+
+public interface TransactionRepository extends JpaRepository<Transaction, Long> {
+
+}

@@ -1,0 +1,5 @@
+package com.eg.swa.modular.ecommerce.productcatalog.service;
+
+public interface ProductService {
+
+}

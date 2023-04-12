@@ -1,0 +1,43 @@
+package com.eg.swa.rabbitmq.model;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
+public class Order {
+
+	private String orderId;
+	private String customerName;
+	private List<String> items;
+	@Column(name = "created_at")
+	private LocalDateTime orderDate;
+
+	// Getters and setters
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public List<String> getItems() {
+		return items;
+	}
+
+	public void setItems(List<String> items) {
+		this.items = items;
+	}
+
+}

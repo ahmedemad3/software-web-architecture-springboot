@@ -1,0 +1,103 @@
+package com.eg.swa.ntier.shopping.service;
+
+import java.util.Optional;
+import org.springframework.stereotype.Service;
+
+import com.eg.swa.ntier.shopping.dto.CartItemDto;
+import com.eg.swa.ntier.shopping.dto.ShoppingCartDto;
+import com.eg.swa.ntier.shopping.model.CartItem;
+import com.eg.swa.ntier.shopping.model.Customer;
+import com.eg.swa.ntier.shopping.model.Product;
+import com.eg.swa.ntier.shopping.model.ShoppingCart;
+import com.eg.swa.ntier.shopping.repository.CartItemRepository;
+import com.eg.swa.ntier.shopping.repository.ShoppingCartRepository;
+
+@Service
+public class ShoppingCartService {
+    
+    private final ShoppingCartRepository shoppingCartRepository;
+    private final CartItemRepository cartItemRepository;
+    private final CustomerService customerService;
+    
+    public ShoppingCartService(ShoppingCartRepository shoppingCartRepository, CartItemRepository cartItemRepository , CustomerService customerService) {
+        this.shoppingCartRepository = shoppingCartRepository;
+        this.cartItemRepository = cartItemRepository;
+        this.customerService = customerService;
+    }
+    
+    public ShoppingCart getOrCreateCart(Customer customer) {
+        Optional<ShoppingCart> optionalCart = shoppingCartRepository.findByCustomerId(customer.getId());
+        if (optionalCart.isPresent()) {
+            return optionalCart.get();
+        } else {
+            ShoppingCart cart = new ShoppingCart();
+            cart.setCustomer(customer);
+            return shoppingCartRepository.save(cart);
+        }
+    }
+    
+    public void addItemToCart(ShoppingCartDto shoppingCartDto) {
+        Optional<CartItemDto> optionalCartItem = shoppingCartDto.getCartItems().stream()
+                .filter(item -> item.getProduct().equals(product))
+                .findFirst();
+        if (optionalCartItem.isPresent()) {
+            CartItem cartItem = optionalCartItem.get();
+            cartItem.setQuantity(cartItem.getQuantity() + quantity);
+            cartItemRepository.save(cartItem);
+        } else {
+            CartItem cartItem = new CartItem();
+            cartItem.setShoppingCart(cart);
+            cartItem.setProduct(product);
+            cartItem.setQuantity(quantity);
+            cart.getCartItems().add(cartItem);
+            shoppingCartRepository.save(cart);
+        }
+    }
+    
+    
+    public void removeItemFromCart( Long customerId, Long cartItemId) throws Exception {
+    	
+    	Optional<Customer> optionalCustomer = customerService.getCustomerById(customerId);
+        if (!optionalCustomer.isPresent()) {
+            throw new Exception("Customer not found");
+        }
+        
+        Customer customer = optionalCustomer.get();
+        Optional<ShoppingCart> optionalCart = shoppingCartRepository.findByCustomerId(customer.getId());
+        if (!optionalCart.isPresent()) {
+        	throw new Exception("Cart not found");
+        }
+        
+        ShoppingCart cart = optionalCart.get();
+        Optional<CartItem> optionalCartItem = cart.getCartItems().stream()
+                                                .filter(item -> item.getId().equals(cartItemId))
+                                                .findFirst();
+        if (!optionalCartItem.isPresent()) {
+        	throw new Exception("ItemCart not found");
+        }
+        
+        CartItem cartItem = optionalCartItem.get();
+        cartItemRepository.delete(cartItem);
+    }
+    
+    public void clearCart(ShoppingCart cart) {
+        cartItemRepository.deleteByCartId(cart.getId());
+    }
+
+	public void updateCartItem(ShoppingCartDto shoppingCartDto) {
+		
+		Optional<Customer> optionalCustomer = customerService.getCustomerById(shoppingCartDto.getCustomerId());
+        if (!optionalCustomer.isPresent()) {
+            throw new Exception("Customer not found");
+        }
+        
+        Customer customer = optionalCustomer.get();
+        Optional<ShoppingCart> optionalCart = shoppingCartRepository.findByCustomerId(customer.getId());
+        if (!optionalCart.isPresent()) {
+        	throw new Exception("Cart not found");
+        }
+		
+	}
+    
+}
+

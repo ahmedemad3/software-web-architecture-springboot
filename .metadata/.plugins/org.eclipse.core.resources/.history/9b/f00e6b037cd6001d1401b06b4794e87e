@@ -1,0 +1,18 @@
+CREATE TABLE WS.transaction (
+  id SERIAL PRIMARY KEY,
+  payment_id INTEGER REFERENCES payment(id),
+  transaction_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  status VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE payment (
+    payment_id SERIAL PRIMARY KEY,
+    payment_date TIMESTAMP NOT NULL,
+    card_number VARCHAR(16) NOT NULL,
+    card_holder_name VARCHAR(100) NOT NULL,
+    cvv VARCHAR(3) NOT NULL,
+    expiry_month INTEGER NOT NULL,
+    expiry_year INTEGER NOT NULL,
+    amount DECIMAL(10,2) NOT NULL
+);
+

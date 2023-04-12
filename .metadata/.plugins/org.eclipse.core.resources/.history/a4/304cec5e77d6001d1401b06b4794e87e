@@ -1,0 +1,23 @@
+package com.eg.swa.WS.config;
+
+import javax.xml.ws.Endpoint;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class WebServiceConfig {
+ 
+    @Bean
+    public Endpoint endpoint() {
+        EndpointImpl endpoint = new EndpointImpl(SPRING_BUS, new PaymentServiceImpl());
+        endpoint.publish("/payment");
+        return endpoint;
+    }
+ 
+    @Bean(name = "springBus")
+    public SpringBus springBus() {
+        return new SpringBus();
+    }
+}
+

@@ -1,0 +1,14 @@
+1681028191549	Rename type 'RabbitMQConfig'
+1681028216457	Rename type 'RabbitMQConfiguration'
+1681078344459	Delete element
+1681081312391	Rename package 'com.eg.swa.rabbitmq.listener'
+1681081520392	Rename type 'OrderListener'
+1681081782258	Rename type 'OrderReciever'
+1681081799280	Rename package 'com.eg.swa.rabbitmq.send.reciever'
+1681083432206	Rename package 'com.eg.swa.rabbitmq.send.receiver'
+1681083451909	Move compilation unit
+1681083465524	Rename type 'OrderSender'
+1681083480077	Rename type 'OrderReceiver'
+1681083534555	Rename package 'com.eg.swa.rabbitmq.consumer'
+1681099611296	Rename type 'OrderConsumer'
+1681099625706	Rename type 'MyMessageListener'

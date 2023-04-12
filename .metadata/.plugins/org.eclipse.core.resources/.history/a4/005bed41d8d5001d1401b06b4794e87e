@@ -1,0 +1,25 @@
+package com.eg.swa.microkernel.controller;
+
+@RestController
+@RequestMapping("/plugins")
+public class PluginController {
+
+    @Autowired
+    private PluginManager pluginManager;
+
+    @PostMapping("/{pluginName}")
+    public void loadPlugin(@PathVariable String pluginName) {
+        pluginManager.loadPlugin(pluginName);
+    }
+
+    @PostMapping("/{pluginName}/run")
+    public void runPlugin(@PathVariable String pluginName) {
+        pluginManager.runPlugin(pluginName);
+    }
+
+    @PostMapping("/{pluginName}/stop")
+    public void stopPlugin(@PathVariable String pluginName) {
+        pluginManager.stopPlugin(pluginName);
+    }
+}
+

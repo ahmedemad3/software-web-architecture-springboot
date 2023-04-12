@@ -1,0 +1,13 @@
+package com.eg.swa.modular.ecommerce.ordermanagement;
+
+@Entity
+public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private LocalDateTime dateTime;
+    private BigDecimal total;
+
+    // constructors, getters and setters
+}
+

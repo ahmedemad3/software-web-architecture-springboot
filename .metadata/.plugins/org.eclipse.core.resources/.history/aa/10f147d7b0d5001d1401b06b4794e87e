@@ -1,0 +1,6 @@
+package com.eg.swa.modular.ecommerce.ordermanagement;
+
+@Repository
+public interface OrderRepository extends JpaRepository<Order, Long> {
+}
+

@@ -1,0 +1,8 @@
+package com.eg.swa.rabbitmq.send.reciever;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class OrderSender {
+
+}

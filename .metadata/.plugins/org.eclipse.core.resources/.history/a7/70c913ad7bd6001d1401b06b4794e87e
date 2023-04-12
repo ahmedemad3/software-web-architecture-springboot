@@ -1,0 +1,6 @@
+CREATE TABLE WS.transaction (
+  id SERIAL PRIMARY KEY,
+  payment_id INTEGER REFERENCES payment(id),
+  transaction_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  status VARCHAR(50) NOT NULL
+);

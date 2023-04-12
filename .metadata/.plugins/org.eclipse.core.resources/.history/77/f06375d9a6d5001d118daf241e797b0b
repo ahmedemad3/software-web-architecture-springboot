@@ -1,0 +1,13 @@
+package com.eg.swa.bankTransfer.model;
+
+import java.math.BigDecimal;
+
+public class TransferRequest {
+    private String fromAccountNumber;
+    private String toAccountNumber;
+    private BigDecimal amount;
+    // getters and setters
+    
+    
+}
+

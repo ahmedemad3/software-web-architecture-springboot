@@ -1,0 +1,23 @@
+1680916265802	Rename package 'com.eg.swa.modular.ecommerce.productcatalog.service.impl'
+1680917432125	Move compilation unit
+1680917437774	Move compilation unit
+1680917445803	Move compilation unit
+1680917459487	Delete elements
+1680917472789	Rename package 'com.eg.swa.modular.ecommerce.productcatalog.controller'
+1680917495282	Rename type 'ProductServiceImpl'
+1680918910776	Delete element
+1680921339537	Encapsulate field 'quantity'
+1680922118109	Rename package 'com.eg.swa.modular.ecommerce.ordermanagement'
+1680922726099	Rename package 'com.eg.swa.modular.ecommerce.orders'
+1680922816876	Delete element
+1680923639989	Move 'db.sql' to 'db'
+1680923661248	Move 'db.sql' to 'db'
+1680923664531	Delete element
+1680925477325	Copy folder
+1680925505760	Copy compilation unit
+1680925519030	Copy compilation unit
+1680925542713	Copy compilation units
+1680925595368	Copy compilation units
+1680925609619	Copy compilation unit
+1680933046645	Copy compilation unit
+1680933085560	Copy compilation unit

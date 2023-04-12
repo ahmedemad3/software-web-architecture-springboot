@@ -1,0 +1,13 @@
+package com.eg.swa.WS.model;
+
+import java.security.Timestamp;
+
+public class Transaction {
+	
+	private String transactionId;
+	private String transactionStatus;
+	private Timestamp transactionDateTime;
+	
+	
+
+}

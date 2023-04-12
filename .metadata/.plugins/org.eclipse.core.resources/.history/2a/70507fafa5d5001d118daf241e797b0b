@@ -1,0 +1,10 @@
+package com.eg.swa.bankTransfer.service.Impl;
+
+import org.springframework.stereotype.Service;
+
+import com.eg.swa.bankTransfer.service.TransferService;
+
+@Service
+public class TransferServiceImpl implements TransferService{
+
+}

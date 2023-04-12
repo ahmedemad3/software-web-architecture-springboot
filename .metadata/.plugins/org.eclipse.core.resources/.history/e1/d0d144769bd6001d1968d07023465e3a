@@ -1,0 +1,5 @@
+package com.eg.swa.redis.cache.controller;
+
+public class BookController {
+
+}

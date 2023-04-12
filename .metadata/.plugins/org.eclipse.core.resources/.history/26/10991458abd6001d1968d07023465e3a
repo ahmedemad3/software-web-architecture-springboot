@@ -1,0 +1,5 @@
+package com.eg.swa.rabbitmq.model;
+
+public class Order {
+
+}

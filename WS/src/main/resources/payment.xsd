@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/payment"
+           xmlns:tns="http://example.com/payment"
+           elementFormDefault="qualified">
+    
+    <xs:element name="paymentRequest" type="tns:paymentRequestType"/>
+    
+    <xs:complexType name="paymentRequestType">
+        <xs:sequence>
+            <xs:element name="cardNumber" type="xs:string"/>
+            <xs:element name="expiryMonth" type="xs:int"/>
+            <xs:element name="expiryYear" type="xs:int"/>
+            <xs:element name="cvv" type="xs:int"/>
+            <xs:element name="amount" type="xs:double"/>
+            <xs:element name="currency" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="paymentResponse" type="tns:paymentResponseType"/>
+    
+    <xs:complexType name="paymentResponseType">
+        <xs:sequence>
+            <xs:element name="transactionId" type="xs:string"/>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>

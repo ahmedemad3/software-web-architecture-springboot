@@ -1,0 +1,8 @@
+package com.eg.swa.modular.ecommerce.ordermanagement;
+
+public enum OrderStatus {
+	PENDING,
+	SHIPPED,
+	DELIVERED
+
+}

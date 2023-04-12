@@ -1,0 +1,17 @@
+package com.eg.swa.WS.endpoint;
+
+@Endpoint
+public class PaymentEndpoint {
+    
+    private static final String NAMESPACE_URI = "http://example.com/payment";
+
+    @Autowired
+    private PaymentService paymentService;
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "paymentRequest")
+    @ResponsePayload
+    public PaymentResponse processPayment(@RequestPayload PaymentRequest paymentRequest) {
+        return paymentService.processPayment(paymentRequest);
+    }
+}
+

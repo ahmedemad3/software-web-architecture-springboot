@@ -1,0 +1,30 @@
+package com.eg.swa.rabbitmq.publish;
+
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.core.Queue;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import com.eg.swa.rabbitmq.model.Order;
+
+@Service
+public class OrderPublisher {
+
+	@Autowired
+	private AmqpTemplate rabbitTemplate;
+
+	@Autowired
+	private Queue queue;
+
+//	@Value("${spring.rabbitmq.exchange}")
+//	private String exchange;
+//
+//	@Value("${spring.rabbitmq.routingkey}")
+//	private String routingKey;
+
+	public void publish(Order order) {
+		rabbitTemplate.convertAndSend(order);
+	}
+
+}

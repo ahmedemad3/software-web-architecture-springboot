@@ -1,0 +1,12 @@
+package com.eg.swa.WS.model;
+
+public class Payment {
+	
+	private String cardNumber;
+	private double amount;
+	private String expiryMonth;
+	private String expiryYear;
+	private String cvv;
+
+
+}

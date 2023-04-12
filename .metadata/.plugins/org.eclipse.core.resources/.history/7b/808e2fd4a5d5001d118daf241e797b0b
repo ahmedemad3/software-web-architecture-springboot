@@ -1,0 +1,5 @@
+package com.eg.swa.bankTransfer.service;
+
+public interface TransferService {
+
+}

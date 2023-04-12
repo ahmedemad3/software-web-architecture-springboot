@@ -1,0 +1,5 @@
+package com.eg.swa.ntier.shopping.repository;
+
+public interface CustomerRepository {
+
+}

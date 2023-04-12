@@ -1,0 +1,8 @@
+package com.eg.swa.WS.model;
+
+public class Payment {
+	
+	private double amount;
+	private String cardNumber;
+
+}

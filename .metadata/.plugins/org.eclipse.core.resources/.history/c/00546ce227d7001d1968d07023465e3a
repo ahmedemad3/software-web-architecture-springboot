@@ -1,0 +1,13 @@
+spring.rabbitmq.host=localhost
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=guest
+spring.rabbitmq.password=guest
+spring.rabbitmq.queue=order-queue
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres?currentSchema=rabbitmqp2p
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+
+

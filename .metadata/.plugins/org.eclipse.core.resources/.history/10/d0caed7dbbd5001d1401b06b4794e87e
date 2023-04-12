@@ -1,0 +1,13 @@
+CREATE TABLE account (
+  id serial primary key,
+  account_number varchar(20) unique not null,
+  balance decimal(10,2)
+);
+
+CREATE TABLE transaction (
+  id serial primary key,
+  from_account_id integer not null references account(id),
+  to_account_id integer not null references account(id),
+  amount decimal(10,2),
+  transaction_time timestamp
+);

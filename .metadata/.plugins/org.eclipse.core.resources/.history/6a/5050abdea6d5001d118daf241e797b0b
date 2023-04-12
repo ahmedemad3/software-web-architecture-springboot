@@ -1,0 +1,19 @@
+package com.eg.swa.bankTransfer.controller;
+
+@RestController
+@RequestMapping("/api")
+public class TransferController {
+    @Autowired
+    private TransferService transferService;
+
+    @PostMapping("/transfer")
+    public ResponseEntity<String> transfer(@RequestBody TransferRequest transferRequest) {
+        try {
+            transferService.transfer(transferRequest.getFromAccountNumber(), transferRequest.getToAccountNumber(), transferRequest.getAmount());
+            return ResponseEntity.ok("Transfer successful");
+        } catch (InsufficientBalanceException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+}
+

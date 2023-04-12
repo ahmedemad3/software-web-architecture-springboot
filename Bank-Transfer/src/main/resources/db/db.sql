@@ -1,0 +1,22 @@
+CREATE TABLE banking.account (
+  id serial primary key,
+  account_number varchar(20) unique not null,
+  balance decimal(10,2)
+);
+
+CREATE TABLE banking.transaction (
+  id serial primary key,
+  from_account_id integer not null references banking.account(id),
+  to_account_id integer not null references banking.account(id),
+  amount decimal(10,2),
+  transaction_time timestamp DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO banking.account (account_number, balance)
+VALUES
+  ('1234567890', 1000.00),
+  ('0987654321', 2500.50),
+  ('9876543210', 500.00),
+  ('0123456789', 300.75),
+  ('5432109876', 1500.25);
+

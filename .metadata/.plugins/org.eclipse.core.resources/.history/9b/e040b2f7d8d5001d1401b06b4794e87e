@@ -1,0 +1,11 @@
+package com.eg.swa.microkernel.adapters;
+
+@Component
+public class ExamplePlugin implements Plugin {
+
+    @Override
+    public void run() {
+        System.out.println("Example plugin is running.");
+    }
+}
+

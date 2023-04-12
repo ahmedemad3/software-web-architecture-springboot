@@ -1,0 +1,5 @@
+package com.eg.swa.WS.repository;
+
+public interface TransactionRepository {
+
+}

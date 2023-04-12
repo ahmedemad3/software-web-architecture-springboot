@@ -1,0 +1,22 @@
+package com.eg.swa.rabbitmq.listener;
+
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.eg.swa.rabbitmq.model.Order;
+import com.eg.swa.rabbitmq.service.OrderService;
+
+@Component
+public class OrderListener {
+
+  @Autowired
+  private OrderService orderService;
+
+  @RabbitListener(queues = "${spring.rabbitmq.queue}")
+  public void receiveOrder(Order order) {
+    orderService.processOrder(order);
+  }
+
+}
+

@@ -1,0 +1,53 @@
+package com.eg.swa.ntier.shopping.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.eg.swa.ntier.shopping.service.ShoppingCartService;
+
+@RestController
+@RequestMapping("/api/shopping-cart")
+public class ShoppingCartController {
+    
+    @Autowired
+    private ShoppingCartService shoppingCartService;
+
+    @PostMapping("/{userId}")
+    public ResponseEntity<String> addToCart(@PathVariable("userId") Long userId, @RequestBody ShoppingCartDto shoppingCartDto) {
+        shoppingCartDto.setUserId(userId);
+        Long cartItemId = shoppingCartService.addToCart(shoppingCartDto);
+        return ResponseEntity.ok().body("Item added to cart. Cart item id: " + cartItemId);
+    }
+     
+    @DeleteMapping("/{userId}/{cartItemId}")
+    public ResponseEntity<String> removeFromCart(@PathVariable("userId") Long userId, @PathVariable("cartItemId") Long cartItemId) {
+        shoppingCartService.removeFromCart(userId, cartItemId);
+        return ResponseEntity.ok().body("Item removed from cart.");
+    }
+    
+    @PutMapping("/{userId}/{cartItemId}")
+    public ResponseEntity<String> updateCartItem(@PathVariable("userId") Long userId, @PathVariable("cartItemId") Long cartItemId, 
+                                                  @RequestBody ShoppingCartDto shoppingCartDto) {
+        shoppingCartDto.setId(cartItemId);
+        shoppingCartDto.setUserId(userId);
+        shoppingCartService.updateCartItem(shoppingCartDto);
+        return ResponseEntity.ok().body("Cart item updated.");
+    }
+    
+    @PostMapping("/{userId}/checkout")
+    public ResponseEntity<String> checkoutCart(@PathVariable("userId") Long userId) {
+        shoppingCartService.checkoutCart(userId);
+        return ResponseEntity.ok().body("Checkout successful.");
+    }
+}
+

@@ -1,0 +1,6 @@
+package com.eg.swa.modular.ecommerce.productcatalog.service.impl;
+
+@Service
+public class ProductServiceImpl {
+
+}

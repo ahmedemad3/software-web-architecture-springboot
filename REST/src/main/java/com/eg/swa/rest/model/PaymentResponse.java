@@ -1,0 +1,31 @@
+package com.eg.swa.rest.model;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "paymentResponse")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class PaymentResponse {
+	private String paymentId;
+	private String status;
+
+	// getters and setters
+
+	public String getPaymentId() {
+		return paymentId;
+	}
+
+	public void setPaymentId(String paymentId) {
+		this.paymentId = paymentId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+}

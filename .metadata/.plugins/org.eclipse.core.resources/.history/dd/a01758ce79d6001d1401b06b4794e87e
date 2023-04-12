@@ -1,0 +1,44 @@
+package com.eg.swa.WS.endpoint;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
+import org.springframework.stereotype.Component;
+import org.springframework.ws.server.endpoint.annotation.Endpoint;
+import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
+import org.springframework.ws.server.endpoint.annotation.RequestPayload;
+import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+
+import com.eg.swa.WS.model.PaymentRequest;
+import com.eg.swa.WS.model.PaymentResponse;
+import com.eg.swa.WS.service.PaymentService;
+
+@Endpoint
+@Configuration
+public class PaymentEndpoint {
+
+	private static final String NAMESPACE_URI = "http://example.com/payment";
+
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "paymentRequest")
+	@ResponsePayload
+	public PaymentResponse processPayment(@RequestPayload PaymentRequest paymentRequest) {
+		return paymentService.processPayment(paymentRequest);
+	}
+
+	@Bean
+	public Jaxb2Marshaller setMarshaller(Jaxb2Marshaller marshaller) {
+		marshaller.setContextPath("com.example.payment");
+		return marshaller;
+	}
+
+	@Bean
+	public Jaxb2Marshaller setUnmarshaller(Jaxb2Marshaller unmarshaller) {
+		unmarshaller.setContextPath("com.example.payment");
+		return unmarshaller;
+	}
+
+	@Bean
+	public void setPaymentService(PaymentService paymentService) {
+		this.paymentService = paymentService;
+	}
+}

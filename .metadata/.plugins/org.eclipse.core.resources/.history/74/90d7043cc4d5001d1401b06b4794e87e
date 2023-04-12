@@ -1,0 +1,44 @@
+package com.eg.swa.ntier.shopping.controller;
+
+@RestController
+@RequestMapping("/api/shopping-cart")
+public class ShoppingCartController {
+    
+    @Autowired
+    private ShoppingCartService shoppingCartService;
+
+    @PostMapping("/{userId}")
+    public ResponseEntity<String> addToCart(@PathVariable("userId") Long userId, @RequestBody ShoppingCartDto shoppingCartDto) {
+        shoppingCartDto.setUserId(userId);
+        Long cartItemId = shoppingCartService.addToCart(shoppingCartDto);
+        return ResponseEntity.ok().body("Item added to cart. Cart item id: " + cartItemId);
+    }
+    
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<ShoppingCartDto>> viewCart(@PathVariable("userId") Long userId) {
+        List<ShoppingCartDto> cartItems = shoppingCartService.viewCart(userId);
+        return ResponseEntity.ok().body(cartItems);
+    }
+    
+    @DeleteMapping("/{userId}/{cartItemId}")
+    public ResponseEntity<String> removeFromCart(@PathVariable("userId") Long userId, @PathVariable("cartItemId") Long cartItemId) {
+        shoppingCartService.removeFromCart(userId, cartItemId);
+        return ResponseEntity.ok().body("Item removed from cart.");
+    }
+    
+    @PutMapping("/{userId}/{cartItemId}")
+    public ResponseEntity<String> updateCartItem(@PathVariable("userId") Long userId, @PathVariable("cartItemId") Long cartItemId, 
+                                                  @RequestBody ShoppingCartDto shoppingCartDto) {
+        shoppingCartDto.setId(cartItemId);
+        shoppingCartDto.setUserId(userId);
+        shoppingCartService.updateCartItem(shoppingCartDto);
+        return ResponseEntity.ok().body("Cart item updated.");
+    }
+    
+    @PostMapping("/{userId}/checkout")
+    public ResponseEntity<String> checkoutCart(@PathVariable("userId") Long userId) {
+        shoppingCartService.checkoutCart(userId);
+        return ResponseEntity.ok().body("Checkout successful.");
+    }
+}
+

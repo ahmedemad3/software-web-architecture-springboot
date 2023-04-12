@@ -1,0 +1,56 @@
+package com.eg.swa.ntier.shopping.service.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.eg.swa.ntier.shopping.model.Product;
+import com.eg.swa.ntier.shopping.repository.ProductRepository;
+import com.eg.swa.ntier.shopping.service.ProductService;
+
+@Service
+public class ProductServiceImpl implements ProductService{
+	
+	private final ProductRepository productRepository;
+
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    public List<Product> searchProductsByName(String name) {
+        return productRepository.findByNameContainingIgnoreCase(name);
+    }
+
+    public Product getProductById(Long id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new Exception("Product Not found"));
+    }
+
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    public Product updateProduct(Long id, Product product) {
+        Product existingProduct = productRepository.findById(id)
+                .orElseThrow(() -> new Exception("Product Not found"));
+
+        existingProduct.setName(product.getName());
+        existingProduct.setDescription(product.getDescription());
+        existingProduct.setPrice(product.getPrice());
+
+        return productRepository.save(existingProduct);
+    }
+
+    public void deleteProduct(Long id) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Product", "id", id));
+
+        productRepository.delete(product);
+    }
+
+
+}

@@ -1,0 +1,10 @@
+package com.eg.swa.modular.ecommerce.ordermanagement;
+
+public class OrderItemDto {
+	
+	private Long productId;
+	private BigDecimal price;
+    private Integer quantity;
+
+
+}

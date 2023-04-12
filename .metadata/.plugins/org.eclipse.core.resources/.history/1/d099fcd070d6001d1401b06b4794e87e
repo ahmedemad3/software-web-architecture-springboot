@@ -1,0 +1,5 @@
+package com.eg.swa.WS.service;
+
+public class PaymentService {
+
+}

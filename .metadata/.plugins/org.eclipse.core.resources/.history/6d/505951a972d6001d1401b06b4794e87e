@@ -1,0 +1,9 @@
+package com.eg.swa.WS.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.eg.swa.WS.model.Transaction;
+
+public class TransactionRepository extends JpaRepository<Transaction, Long> {
+
+}

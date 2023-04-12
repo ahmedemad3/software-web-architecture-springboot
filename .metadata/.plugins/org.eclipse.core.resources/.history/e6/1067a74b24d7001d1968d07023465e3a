@@ -1,0 +1,28 @@
+package com.eg.swa.rabbitmq;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration;
+import org.springframework.context.annotation.Bean;
+
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+@SpringBootApplication(exclude = RabbitAutoConfiguration.class)
+public class RabbitMqPointToPointApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(RabbitMqPointToPointApplication.class, args);
+	}
+
+
+	
+	@Bean
+	public JsonMapper jsonMapper() {
+		JsonMapper jsonMapper = new JsonMapper();
+		jsonMapper.registerModule(new JavaTimeModule());
+		return jsonMapper;
+	}
+
+
+}

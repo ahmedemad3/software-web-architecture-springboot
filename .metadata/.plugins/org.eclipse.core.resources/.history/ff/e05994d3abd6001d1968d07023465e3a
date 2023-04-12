@@ -1,0 +1,16 @@
+package com.eg.swa.rabbitmq.controller;
+
+@RestController
+@RequestMapping("/orders")
+public class OrderController {
+
+  @Autowired
+  private AmqpTemplate rabbitTemplate;
+
+  @PostMapping
+  public void createOrder(@RequestBody Order order) {
+    rabbitTemplate.convertAndSend(order);
+  }
+
+}
+

@@ -1,0 +1,8 @@
+package com.eg.swa.ntier.shopping.repository;
+
+public interface ShoppingCartRepository extends JpaRepository<ShoppingCart, Long> {
+    
+    Optional<ShoppingCart> findByUserId(Long userId);
+    
+}
+

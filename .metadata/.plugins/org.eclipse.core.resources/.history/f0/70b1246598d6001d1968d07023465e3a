@@ -1,0 +1,16 @@
+package com.eg.swa.rest.controller;
+
+@RestController
+@RequestMapping("/payments")
+public class PaymentController {
+
+    @Autowired
+    private PaymentService paymentService;
+
+    @PostMapping
+    public ResponseEntity<Payment> processPayment(@RequestBody Payment payment) {
+        Payment processedPayment = paymentService.processPayment(payment);
+        return ResponseEntity.ok(processedPayment);
+    }
+}
+

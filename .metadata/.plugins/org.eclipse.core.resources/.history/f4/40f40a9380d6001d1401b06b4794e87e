@@ -1,0 +1,15 @@
+package com.eg.swa.WS.service;
+
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebService;
+
+import com.eg.swa.WS.model.PaymentRequest;
+import com.eg.swa.WS.model.PaymentResponse;
+
+@WebService(name = "PaymentService")
+public interface PaymentService {
+    @WebMethod(operationName = "processPayment")
+    PaymentResponse processPayment(@WebParam(name = "PaymentRequest") PaymentRequest request);
+}
+

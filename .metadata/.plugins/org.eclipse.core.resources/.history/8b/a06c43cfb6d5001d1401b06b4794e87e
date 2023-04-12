@@ -1,0 +1,9 @@
+package com.eg.swa.modular.ecommerce.ordermanagement;
+
+public enum OrderStatus {
+	NEW,
+	CREATED,
+	SHIPPED,
+	DELIVERED;
+
+}

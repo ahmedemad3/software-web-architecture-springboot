@@ -1,0 +1,19 @@
+package com.eg.swa.SOA.model;
+
+@Entity
+public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private String title;
+    
+    private String author;
+    
+    private BigDecimal price;
+    
+    private Integer stock;
+    
+    // getters and setters
+}
+

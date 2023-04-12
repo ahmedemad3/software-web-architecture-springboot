@@ -1,0 +1,74 @@
+package com.eg.swa.ntier.shopping.service;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.eg.swa.ntier.shopping.model.CartItem;
+import com.eg.swa.ntier.shopping.model.Customer;
+import com.eg.swa.ntier.shopping.model.Product;
+import com.eg.swa.ntier.shopping.model.ShoppingCart;
+import com.eg.swa.ntier.shopping.repository.CartItemRepository;
+import com.eg.swa.ntier.shopping.repository.ShoppingCartRepository;
+
+@Service
+public class ShoppingCartService {
+    
+    private final ShoppingCartRepository shoppingCartRepository;
+    private final CartItemRepository cartItemRepository;
+    private final CustomerService customerService;
+    
+    public ShoppingCartService(ShoppingCartRepository shoppingCartRepository, CartItemRepository cartItemRepository) {
+        this.shoppingCartRepository = shoppingCartRepository;
+        this.cartItemRepository = cartItemRepository;
+    }
+    
+    public ShoppingCart getOrCreateCart(Customer customer) {
+        Optional<ShoppingCart> optionalCart = shoppingCartRepository.findByCustomerId(customer.getId());
+        if (optionalCart.isPresent()) {
+            return optionalCart.get();
+        } else {
+            ShoppingCart cart = new ShoppingCart();
+            cart.setCustomer(customer);
+            return shoppingCartRepository.save(cart);
+        }
+    }
+    
+    public void addItemToCart(ShoppingCart cart, Product product, int quantity) {
+        Optional<CartItem> optionalCartItem = cart.getCartItems().stream()
+                .filter(item -> item.getProduct().equals(product))
+                .findFirst();
+        if (optionalCartItem.isPresent()) {
+            CartItem cartItem = optionalCartItem.get();
+            cartItem.setQuantity(cartItem.getQuantity() + quantity);
+            cartItemRepository.save(cartItem);
+        } else {
+            CartItem cartItem = new CartItem();
+            cartItem.setShoppingCart(cart);
+            cartItem.setProduct(product);
+            cartItem.setQuantity(quantity);
+            cart.getCartItems().add(cartItem);
+            shoppingCartRepository.save(cart);
+        }
+    }
+    
+    public void updateItemInCart(CartItem cartItem, int quantity) {
+        cartItem.setQuantity(quantity);
+        cartItemRepository.save(cartItem);
+    }
+    
+    public void removeItemFromCart( Long customerId, Long cartItemId) {
+    	
+    	Optional<Customer> optionalCustomer = customerService.getCustomerById(customerId);
+        if (!optionalCustomer.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
+    public void clearCart(ShoppingCart cart) {
+        cartItemRepository.deleteByCartId(cart.getId());
+    }
+    
+}
+

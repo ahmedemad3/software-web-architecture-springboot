@@ -1,0 +1,16 @@
+package com.eg.swa.redis.cache.service;
+
+@Service
+public class BookService {
+
+    private final BookRepository bookRepository;
+
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    public Optional<Book> findByTitle(String title) {
+        return bookRepository.findByTitle(title);
+    }
+}
+

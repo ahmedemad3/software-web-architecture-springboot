@@ -1,0 +1,96 @@
+package com.eg.swa.rabbitmq.config;
+
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.listener.ConditionalRejectingErrorHandler;
+import org.springframework.amqp.rabbit.support.ListenerExecutionFailedException;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.util.ErrorHandler;
+
+@Configuration
+public class RabbitMQConfig {
+
+	@Value("${rabbitmq.host}")
+	private String rabbitMQHost;
+
+	@Value("${rabbitmq.username}")
+	private String rabbitMQUsername;
+
+	@Value("${rabbitmq.password}")
+	private String rabbitMQPassword;
+
+	@Value("${rabbitmq.queue}")
+	private String rabbitMQQueue;
+
+	@Value("${rabbitmq.exchange}")
+	private String rabbitMQExchange;
+
+	@Value("${spring.rabbitmq.routingkey}")
+	private String rabbitMQRoutingkey;
+
+	@Bean
+	public ConnectionFactory connectionFactory() {
+		CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
+		connectionFactory.setHost(rabbitMQHost);
+		connectionFactory.setUsername(rabbitMQUsername);
+		connectionFactory.setPassword(rabbitMQPassword);
+		return connectionFactory;
+	}
+
+	@Bean
+	public Queue queue() {
+		return new Queue(rabbitMQQueue);
+	}
+
+	@Bean
+    public DirectExchange exchange(){
+        return new DirectExchange(rabbitMQExchange);
+    }
+
+	@Bean
+	public Binding binding() {
+		return BindingBuilder.bind(queue()).to(exchange()).with(rabbitMQRoutingkey);
+	}
+
+	@Bean
+	public MessageConverter messageConverter() {
+		return new Jackson2JsonMessageConverter();
+	}
+
+	@Bean
+	public AmqpTemplate rabbitTemplate() {
+		RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory());
+		rabbitTemplate.setMessageConverter(messageConverter());
+		return rabbitTemplate;
+	}
+
+	@Bean
+	public ErrorHandler errorHandler() {
+		return new ConditionalRejectingErrorHandler(new MyFatalExceptionStrategy());
+	}
+
+	public static class MyFatalExceptionStrategy extends ConditionalRejectingErrorHandler.DefaultExceptionStrategy {
+
+		@Override
+		public boolean isFatal(Throwable t) {
+			if (t instanceof ListenerExecutionFailedException) {
+				ListenerExecutionFailedException lefe = (ListenerExecutionFailedException) t;
+				logger.error("Failed to process inbound message from queue "
+						+ lefe.getFailedMessage().getMessageProperties().getConsumerQueue() + "; failed message: "
+						+ lefe.getFailedMessage(), t);
+			}
+			return super.isFatal(t);
+		}
+	}
+
+}

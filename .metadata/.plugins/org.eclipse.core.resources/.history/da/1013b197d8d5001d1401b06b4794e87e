@@ -1,0 +1,5 @@
+package com.eg.swa.microkernel.service;
+
+public interface PluginManager {
+
+}

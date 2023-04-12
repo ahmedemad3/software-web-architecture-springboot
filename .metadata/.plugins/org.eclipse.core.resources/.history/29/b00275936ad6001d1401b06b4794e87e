@@ -1,0 +1,5 @@
+package com.eg.swa.SOA.service;
+
+public interface BookService {
+
+}

@@ -1,0 +1,8 @@
+package com.eg.swa.WS.service.impl;
+
+@WebService(name = "PaymentService")
+public interface PaymentService {
+    @WebMethod(operationName = "processPayment")
+    PaymentResponse processPayment(@WebParam(name = "PaymentRequest") PaymentRequest request);
+}
+

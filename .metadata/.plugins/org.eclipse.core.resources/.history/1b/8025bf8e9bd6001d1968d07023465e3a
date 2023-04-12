@@ -1,0 +1,22 @@
+package com.eg.swa.redis.cache.controller;
+
+@RestController
+@RequestMapping("/books")
+public class BookController {
+    
+    private final BookService bookService;
+
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
+
+    @GetMapping("/{name}")
+    public ResponseEntity<Book> getBookByName(@PathVariable("name") String name) {
+        Book book = bookService.getBookByName(name);
+        if (book == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(book);
+    }
+}
+

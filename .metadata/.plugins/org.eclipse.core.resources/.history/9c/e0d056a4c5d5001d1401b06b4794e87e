@@ -1,0 +1,18 @@
+package com.eg.swa.ntier.shopping.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.eg.swa.ntier.shopping.repository.CustomerRepository;
+
+@Service
+public class CustomerService {
+	
+	@Autowired
+	private CustomerRepository customerRepository;
+	
+	public Customer getCustomerById(Long customerId) {
+		
+	}
+
+}

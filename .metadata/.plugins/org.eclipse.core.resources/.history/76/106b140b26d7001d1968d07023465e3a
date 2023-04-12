@@ -1,0 +1,11 @@
+spring.rabbitmq.host=172.17.0.2
+spring.rabbitmq.port=5672
+spring.rabbitmq.queue=order-queue
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres?currentSchema=rabbitmqp2p
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+
+

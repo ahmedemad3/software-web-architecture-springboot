@@ -1,0 +1,15 @@
+package com.eg.swa.rabbitmq.service;
+
+@Service
+public class OrderService {
+
+    @Autowired
+    private OrderRepository orderRepository;
+
+    public void processOrder(Order order) {
+        // Save the order to the database
+        orderRepository.save(order);
+        System.out.println("Order processed and saved to database: " + order);
+    }
+}
+

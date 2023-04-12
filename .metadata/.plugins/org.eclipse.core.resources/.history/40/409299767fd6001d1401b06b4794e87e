@@ -1,0 +1,28 @@
+package com.eg.swa.WS.config;
+
+@Configuration
+public class CxfConfig {
+
+    @Bean
+    public ServletRegistrationBean<CXFServlet> cxfServlet() {
+        return new ServletRegistrationBean<CXFServlet>(new CXFServlet(), "/cxf/*");
+    }
+
+    @Bean(name = Bus.DEFAULT_BUS_ID)
+    public SpringBus springBus() {
+        return new SpringBus();
+    }
+
+    @Bean
+    public PaymentService paymentService() {
+        return new PaymentServiceImpl();
+    }
+
+    @Bean
+    public Endpoint endpoint() {
+        EndpointImpl endpoint = new EndpointImpl(springBus(), paymentService());
+        endpoint.publish("/payment");
+        return endpoint;
+    }
+}
+

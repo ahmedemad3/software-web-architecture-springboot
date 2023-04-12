@@ -1,0 +1,11 @@
+package com.eg.swa.rabbitmq.model;
+
+public class Order {
+
+	  private String orderId;
+	  private String customerName;
+	  private List<String> items;
+
+	  // Getters and setters
+	}
+

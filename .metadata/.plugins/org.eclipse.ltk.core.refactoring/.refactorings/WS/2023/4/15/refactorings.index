@@ -1,0 +1,20 @@
+1681001873807	Encapsulate field 'expiryMonth'
+1681001880813	Encapsulate field 'expiryYear'
+1681001884732	Encapsulate field 'currency'
+1681002347371	Delete element
+1681002527592	Encapsulate field 'paymentId'
+1681007530913	Rename type 'PaymentService'
+1681007716535	Move compilation unit
+1681007721575	Move compilation unit
+1681007931144	Delete element
+1681007935377	Delete element
+1681007939161	Delete element
+1681008983648	Delete element
+1681008996578	Rename package 'com.eg.swa.WS.service.impl'
+1681009008712	Rename type 'PaymentServiceImpl'
+1681009040200	Delete element
+1681014980594	Infer generic type arguments
+1681018390460	Copy compilation units
+1681018425226	Copy compilation units
+1681018466329	Copy compilation unit
+1681018655093	Copy folder

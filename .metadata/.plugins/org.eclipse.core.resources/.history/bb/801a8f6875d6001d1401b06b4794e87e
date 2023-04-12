@@ -1,0 +1,67 @@
+package com.eg.swa.WS.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.eg.swa.WS.model.Currency;
+import com.eg.swa.WS.model.Payment;
+import com.eg.swa.WS.model.PaymentRequest;
+import com.eg.swa.WS.model.PaymentResponse;
+import com.eg.swa.WS.model.Transaction;
+import com.eg.swa.WS.model.TransactionStatus;
+import com.eg.swa.WS.repository.PaymentRepository;
+import com.eg.swa.WS.repository.TransactionRepository;
+
+@Service
+public class PaymentService {
+
+	@Autowired
+	private PaymentRepository paymentRepository;
+
+	@Autowired
+	private TransactionRepository transactionRepository;
+
+	public PaymentResponse processPayment(PaymentRequest paymentRequest) {
+		// validate paymentRequest
+		if (paymentRequest.getAmount() <= 0) {
+			throw new IllegalArgumentException("Invalid amount");
+		}
+
+		// simulate process payment using external payment gateway
+		PaymentResponse paymentResponse = new PaymentResponse();
+		try {
+			Payment payment = createPayment(paymentRequest);
+			Transaction transaction = createTransaction(payment);
+			paymentResponse.setPaymentId(transaction.getTransactionId());
+			paymentResponse.setStatus(transaction.getTransactionStatus());
+		} catch (Exception e) {
+			paymentResponse.setStatus("FAILED");
+
+		}
+		return paymentResponse;
+	}
+
+	private Payment createPayment(PaymentRequest paymentRequest) {
+
+		Payment payment = new Payment();
+		payment.setAmount(paymentRequest.getAmount());
+		payment.setCurrency(paymentRequest.getCurrency());
+		payment.setCardNumber(paymentRequest.getCardNumber());
+		payment.setExpiryMonth(paymentRequest.getExpiryMonth());
+		payment.setExpiryYear(paymentRequest.getExpiryYear());
+		payment.setCvv(paymentRequest.getCvv());
+		payment.setCurrency(Currency.EGP);
+
+		payment = paymentRepository.save(payment);
+
+		return payment;
+	}
+
+	private Transaction createTransaction(Payment payment) {
+		Transaction transaction = new Transaction();
+		transaction.setPayment(payment);
+		transaction.setTransactionStatus(TransactionStatus.SUCCESS.name());
+		transaction = transactionRepository.save(transaction);
+		return transaction;
+	}
+}

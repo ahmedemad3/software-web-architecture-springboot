@@ -1,0 +1,49 @@
+package com.eg.swa.ntier.shopping.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.eg.swa.ntier.shopping.dto.ShoppingCartDto;
+import com.eg.swa.ntier.shopping.service.ShoppingCartService;
+
+@RestController
+@RequestMapping("/api/shopping-cart")
+public class ShoppingCartController {
+    
+    @Autowired
+    private ShoppingCartService shoppingCartService;
+
+    @PostMapping("/{customerId}")
+    public ResponseEntity<String> addItemToCart(@PathVariable("customerId") Long customerId, @RequestBody ShoppingCartDto shoppingCartDto) {
+        shoppingCartDto.setCustomerId(customerId);
+        shoppingCartService.addItemToCart(shoppingCartDto);
+        return ResponseEntity.ok().body("Item added to cart. Cart item id: " + cartItemId);
+    }
+     
+    @DeleteMapping("/{customerId}/{cartItemId}")
+    public ResponseEntity<String> removeItemFromCart(@PathVariable("customerId") Long customerId, @PathVariable("cartItemId") Long cartItemId) throws Exception {
+        shoppingCartService.removeItemFromCart(customerId, cartItemId);
+        return ResponseEntity.ok().body("Item removed from cart.");
+    }
+    
+    @PutMapping("/{customerId}/{cartItemId}")
+    public ResponseEntity<String> updateCartItem(@PathVariable("customerId") Long customerId, @PathVariable("cartItemId") Long cartItemId, 
+                                                  @RequestBody ShoppingCartDto shoppingCartDto) {
+        shoppingCartDto.setId(cartItemId);
+        shoppingCartDto.setCustomerId(customerId);
+        shoppingCartService.updateCartItem(shoppingCartDto);
+        return ResponseEntity.ok().body("Cart item updated.");
+    }
+    
+}
+

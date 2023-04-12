@@ -1,0 +1,57 @@
+package com.eg.swa.modular.ecommerce.ordermanagement;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.eg.swa.modular.ecommerce.shared.Customer;
+
+@Service
+public class OrderService {
+	
+    private final OrderRepository orderRepository;
+
+    public OrderService(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+
+    public List<Order> getAllOrders() {
+        return orderRepository.findAll();
+    }
+    
+    public List<Order> getOrdersForCustomer(Customer customer) {
+        return orderRepository.findByCustomer(customer);
+    }
+
+    public Order getOrderById(Long id) throws NotFoundException {
+        return orderRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException());
+    }
+
+    public Order createOrder(User user, List<OrderItemDto> orderItems) {
+    	Order order = new Order();
+        order.setUser(user);
+        order.setOrderDate(LocalDateTime.now());
+        order.setStatus(OrderStatus.NEW);
+        
+        List<OrderItem> items = new ArrayList<>();
+        for (OrderItemDto itemDto : orderItems) {
+            OrderItem item = new OrderItem();
+            item.setOrder(order);
+            item.setProduct(productRepository.getById(itemDto.getProductId()));
+            item.setQuantity(itemDto.getQuantity());
+            items.add(item);
+        }
+        
+        order.setOrderItems(items);
+        return orderRepository.save(order);
+    }
+
+    public void deleteOrder(Long id) {
+        orderRepository.deleteById(id);
+    }
+}
+

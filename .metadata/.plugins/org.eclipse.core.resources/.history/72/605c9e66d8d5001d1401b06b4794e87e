@@ -1,0 +1,5 @@
+package com.eg.swa.microkernel.adapters;
+
+public interface Plugin {
+
+}

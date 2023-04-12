@@ -1,0 +1,35 @@
+package com.eg.swa.SOA.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.eg.swa.SOA.model.Book;
+import com.eg.swa.SOA.service.BookService;
+
+public class BookServiceImpl implements BookService {
+
+	@Override
+	public List<Book> getAllBooks() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Book> getBookById(Long id) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public Book saveBook(Book book) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteBook(Long id) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

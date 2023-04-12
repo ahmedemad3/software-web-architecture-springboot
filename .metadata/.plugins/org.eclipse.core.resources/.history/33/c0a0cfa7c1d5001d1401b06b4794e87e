@@ -1,0 +1,10 @@
+package com.eg.swa.ntier.shopping.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.eg.swa.ntier.shopping.service.ProductService;
+
+@Service
+public class ProductServiceImpl implements ProductService{
+
+}
