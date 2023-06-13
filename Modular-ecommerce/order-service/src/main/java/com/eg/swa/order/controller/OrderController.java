@@ -38,7 +38,8 @@ public class OrderController {
 
     @PostMapping("/create")
     public ResponseEntity<Order> createOrder(@RequestBody List<OrderItemDto> orderItems, Long customerId) throws Exception {
-//        Customer customer = (Customer) authentication.getPrincipal();
+    	// Adding spring security
+    	//        Customer customer = (Customer) authentication.getPrincipal();
         Order order = orderService.createOrder(customerId, orderItems);
         return new ResponseEntity<>(order, HttpStatus.CREATED);
     }

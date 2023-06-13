@@ -1,5 +1,0 @@
-package com.eg.swa.rabbitmq.listener;
-
-public class OrderListener {
-
-}

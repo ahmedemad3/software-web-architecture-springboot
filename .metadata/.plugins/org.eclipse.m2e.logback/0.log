@@ -16227,3 +16227,61 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.hibernate
 2023-04-12 08:10:43,690 [Worker-508: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-04-12 08:10:43,690 [Worker-508: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2023-04-12 08:10:43,690 [Worker-508: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\D-Drive\software & web architecture - Projects\N-tier-shopping-cart\src\test\resources
+2023-04-13 07:09:15,949 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-04-13 09:51:57,632 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-04-13 09:52:19,555 [Worker-14: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: com.eg.swa:Modular-ecommerce-root:0.0.1-SNAPSHOT @ C:\D-Drive\software & web architecture - Projects\Modular-ecommerce\pom.xml.
+2023-04-13 09:52:19,961 [Worker-14: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.eg.swa:shared-lib:0.0.1-SNAPSHOT @ C:\D-Drive\software & web architecture - Projects\Modular-ecommerce\shared-lib\pom.xml.
+2023-04-13 09:52:20,271 [Worker-1: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: com.eg.swa:Modular-ecommerce-root:0.0.1-SNAPSHOT @ C:\D-Drive\software & web architecture - Projects\Modular-ecommerce\pom.xml.
+2023-04-13 09:52:20,403 [Worker-1: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.eg.swa:shared-lib:0.0.1-SNAPSHOT @ C:\D-Drive\software & web architecture - Projects\Modular-ecommerce\shared-lib\pom.xml.
+2023-04-13 09:52:28,556 [Worker-0: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.eg.swa:product-service:0.0.1-SNAPSHOT @ C:\D-Drive\software & web architecture - Projects\Modular-ecommerce\product-service\pom.xml.
+2023-04-13 09:52:28,992 [Worker-0: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.eg.swa:order-service:0.0.1-SNAPSHOT @ C:\D-Drive\software & web architecture - Projects\Modular-ecommerce\order-service\pom.xml.
+2023-04-13 09:52:29,100 [Worker-0: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/product-service: com.eg.swa:product-service:0.0.1-SNAPSHOT with classifier  to /product-service/target/classes
+2023-04-13 09:52:29,523 [Worker-13: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.eg.swa:order-service:0.0.1-SNAPSHOT @ C:\D-Drive\software & web architecture - Projects\Modular-ecommerce\order-service\pom.xml.
+2023-04-13 09:52:29,621 [Worker-13: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/product-service: com.eg.swa:product-service:0.0.1-SNAPSHOT with classifier  to /product-service/target/classes
+2023-04-13 09:52:29,650 [Worker-13: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.eg.swa:product-service:0.0.1-SNAPSHOT @ C:\D-Drive\software & web architecture - Projects\Modular-ecommerce\product-service\pom.xml.
+2023-04-13 10:04:12,300 [Worker-1: Creating project "Example-Modualr"] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: com.eg.swa:Example-Modualr:0.0.1-SNAPSHOT @ C:\D-Drive\software & web architecture - Projects\Example-Modualr\pom.xml.
+2023-04-13 10:07:11,995 [Worker-1: Import Getting Started Content] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.eg.swa:shopping-service:0.0.1-SNAPSHOT @ C:\D-Drive\software & web architecture - Projects\Example-Modualr\shopping-service\pom.xml.
+2023-04-13 10:07:13,143 [Worker-1: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /shopping-service/src/main/java
+2023-04-13 10:07:13,144 [Worker-1: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /shopping-service/src/main/resources
+2023-04-13 10:07:13,148 [Worker-1: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /shopping-service/src/main/resources
+2023-04-13 10:07:13,152 [Worker-1: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /shopping-service/src/test/java
+2023-04-13 10:07:13,782 [Worker-1: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 2 sec
+2023-04-13 10:07:13,785 [Worker-1: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2023-04-13 10:07:13,965 [Worker-1: Import Getting Started Content] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.eg.swa:shopping-service:0.0.1-SNAPSHOT @ C:\D-Drive\software & web architecture - Projects\Example-Modualr\shopping-service\pom.xml.
+2023-04-13 10:07:14,440 [Worker-1: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /shopping-service/src/main/java
+2023-04-13 10:07:14,440 [Worker-1: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /shopping-service/src/main/resources
+2023-04-13 10:07:14,440 [Worker-1: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /shopping-service/src/main/resources
+2023-04-13 10:07:14,441 [Worker-1: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /shopping-service/src/test/java
+2023-04-13 10:07:14,899 [Worker-1: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2023-04-13 10:07:15,510 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-13 10:07:15,544 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-13 10:07:15,550 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\D-Drive\software & web architecture - Projects\Example-Modualr\shopping-service\src\test\resources
+2023-04-13 10:10:54,224 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-13 10:10:54,224 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-04-13 10:10:54,225 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-04-13 10:10:54,258 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-04-13 10:10:54,264 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-13 10:10:54,264 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-04-13 10:10:54,265 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\D-Drive\software & web architecture - Projects\Modular-ecommerce\order-service\src\test\resources
+2023-04-13 10:13:37,010 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-13 10:13:37,010 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-04-13 10:13:37,015 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-04-13 10:13:37,027 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-04-13 10:13:37,032 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-13 10:13:37,032 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-04-13 10:13:37,032 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\D-Drive\software & web architecture - Projects\Modular-ecommerce\order-service\src\test\resources
+2023-04-13 10:13:49,200 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-13 10:13:49,200 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-04-13 10:13:49,201 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-04-13 10:13:49,210 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-04-13 10:13:49,214 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-13 10:13:49,214 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-04-13 10:13:49,215 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\D-Drive\software & web architecture - Projects\Modular-ecommerce\order-service\src\test\resources
+2023-04-13 10:15:07,095 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-13 10:15:07,095 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-04-13 10:15:07,097 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-04-13 10:15:07,107 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-04-13 10:15:07,111 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-13 10:15:07,111 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-04-13 10:15:07,111 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\D-Drive\software & web architecture - Projects\Modular-ecommerce\order-service\src\test\resources
+2023-04-14 06:20:40,122 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

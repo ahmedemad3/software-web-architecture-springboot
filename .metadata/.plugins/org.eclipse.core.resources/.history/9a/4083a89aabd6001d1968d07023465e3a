@@ -1,5 +1,0 @@
-package com.eg.swa.rabbitmq.config;
-
-public class RabbitMQConfig {
-
-}

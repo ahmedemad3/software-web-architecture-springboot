@@ -26,6 +26,8 @@ public class OrderService {
 
 	@Autowired
 	private OrderRepository orderRepository;
+	
+	// refactor to not used productRepository and instead use productService
 	@Autowired
 	private ProductRepository productRepository;
 	
@@ -52,6 +54,8 @@ public class OrderService {
 	}
 
 	public Order createOrder(Long customerId, List<OrderItemDto> orderItems) throws Exception {
+		
+		// refactor create order
 		Order order = new Order();
 
 		Customer customer = new Customer();
